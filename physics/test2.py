@@ -5,10 +5,10 @@ from matplotlib.animation import FuncAnimation
 from mpl_toolkits.mplot3d import Axes3D
 
 # Define the simulation parameters
-cube_size = 10
-initial_position = np.array([5, 5, 5], dtype=float)
+cube_size = 4
+initial_position = np.array([2, 2, 2], dtype=float)
 initial_velocity = np.random.rand(3) * 2 - 1  # Random velocity
-dt = 0.5  # Time step duration
+dt = 0.8  # Time step duration
 
 # Set up the figure and 3D axis
 fig = plt.figure()
