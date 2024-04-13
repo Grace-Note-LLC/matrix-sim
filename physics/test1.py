@@ -28,7 +28,6 @@ def getParticlePositions():
 
 # Simulation loop
 for _ in range(time_steps):
-    
     updateParticles(dt)
 
     print(f"Time step {_}: Position = \n{getParticlePositions()}")
