@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <bitset>
+#include <cmath>
 
 using namespace std;
 
@@ -93,6 +94,22 @@ void update_all(std::vector<Particle>* particles) {
 }
 
 /*
+Makes sure the rounded values are within the cube's bounds. Only input 
+rounded values
+*/
+int bound_fix(int val) {
+    if (val < 0) {
+        return 0;
+    }
+    else if (val >= CUBE_SIZE) {
+        return CUBE_SIZE - 1;
+    }
+    else {
+        return val;
+    }
+}
+
+/*
 Converts particle positions into led coordinates depending on the size
 */
 std::vector<std::tuple<int8_t, int8_t, int8_t>> particle_to_led(std::vector<Particle>* particles) {
@@ -102,16 +119,23 @@ std::vector<std::tuple<int8_t, int8_t, int8_t>> particle_to_led(std::vector<Part
         auto pos = p.get_position();
 
         // convert part
+        tuple<int8_t, int8_t, int8_t> led_coord = make_tuple(
+            bound_fix(round(get<0>(pos))),
+            bound_fix(round(get<1>(pos))),
+            bound_fix(round(get<2>(pos)))
+        );
 
-        led_coords.push_back(pos);
+        led_coords.push_back(led_coord);
     }
 
     return led_coords;
 }
 
-std::bitset<LED_COUNT> led_to_state_vector(std::vector<std::tuple<int8_t, int8_t, int8_t>>* led_coords) {
 
-    // speed up
+/*
+Converts LED coordinates into bit state
+*/
+std::bitset<LED_COUNT> led_to_bit_state(std::vector<std::tuple<int8_t, int8_t, int8_t>>* led_coords) {
     std::bitset<LED_COUNT> output;
 
     // god forsaken O(k) solution that beats O(n^3) 
@@ -124,7 +148,6 @@ std::bitset<LED_COUNT> led_to_state_vector(std::vector<std::tuple<int8_t, int8_t
         // index of bit set starts from right, so subtract
         output.set(LED_COUNT - state_idx);
     }
-
-
+\
     return output;
 }

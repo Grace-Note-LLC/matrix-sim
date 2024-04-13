@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
         std:vector<std::tuple<int8_t, int8_t, int8_t>> led_coords = particle_to_led(&particles);
 
         // convert led coords to state vector
-        std::bitset<LED_COUNT> bit_state = led_to_state_vector(&led_coords);
+        std::bitset<LED_COUNT> bit_state = led_to_bit_state(&led_coords);
 
     }
 

@@ -2,6 +2,7 @@
     "files.associations": {
         "*.rmd": "markdown",
         "iostream": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "tuple": "cpp"
     }
 }
