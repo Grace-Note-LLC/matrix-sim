@@ -8,10 +8,7 @@
 #if !defined(spi_h)
 #define spi_h
 
-#include "../sim.h"
-
-#endif // spi_h
-
+#include "sim.h"
 
 
 int spi_init() {
@@ -81,3 +78,5 @@ unsigned char* bits_to_byte(bitset<LED_COUNT> bit_state) {
     }
     return bytes;
 }
+
+#endif // spi_h
