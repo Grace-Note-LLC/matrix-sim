@@ -37,7 +37,6 @@ The presets are the following:
 
 0. **Particle Simulation** (`particle_sim.h`): Handles simple particle physics simulations, including interactions with borders.
 
-
 1. **Explode Simulation** (`explode_sim.h`): Simulates expanding wavefronts and explosive effects that radiate across the cube. 
 
 2. **Snake Simulation** (`snake_sim.h`): A playful yet intricate module where a 'snake' traverses the entire grid in a continuous path, illuminating each LED once.
@@ -46,13 +45,15 @@ The presets are the following:
 
 4. **Loading Simulation** (`loading_sim.h`): Displays loading or progress animations that fill the cube gradually.
 
+
+
 ### Other Modules
 
 **SPI Communication** (`spi.h`): Manages Serial Peripheral Interface (SPI) communications, crucial for controlling the LEDs and handling data transmission between the hardware components and the simulation software.
 
 
 ## Firmware
-
+Firmware is mainly involved with the STM32F103C8T6 microcontroller, which is responsible for controlling the LED matrix. The firmware is written in C and is compiled using the STM32CubeIDE. The firmware is responsible for receiving commands from the Raspberry Pi over SPI and controlling the LED matrix accordingly.
 
 
 
