@@ -58,4 +58,8 @@ The presets are the following:
 
 ## Hardware
 
-The hardware is a `4 x 4 x 4` 3D matrix of **LEDs**, where each *LED* is controlled by a microcontroller, the **STM32 F103C8T6**. The *STM32* is connected to a **Raspberry Pi 4**, which sends the data to the *STM32*. The *Pi* runs the software, which sends the data to the *STM32* over the **Serial Peripheral Interface (SPI)** Protocol.
+The Kickback Kube features a '4 x 4 x 4' 3D matrix of LEDs. The LEDs are driven by a PCA9685 servo motor driver which is controlled by an STM32F103C8T6 microcontroller over the I2C bus. The microcontroller receives commands from a Raspberry Pi 4 SBC over SPI. The Raspberry Pi 4 converts images from physics simulations, as well as other graphics, into an 8-byte message which is transferred to the microcontroller over SPI.
+
+The LED matrix is completely soldered to 6 pieces of perf-board, and provides connections to the servo motor driver as well as the microcontroller.
+
+For the LED matrix, each layer is controlled by a high-side BJT and current is sunk through the signal pins of the PCA9685. When one of the BJTs is turned on, it provides +5V to every LED in its corresponding layer, and the current is sunk through the PCA9685 by generating a PWM signal on one of the 16 signal pins. This allows each LED in the matrix to be individually addressable.
