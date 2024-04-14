@@ -7,6 +7,10 @@
 
 #endif // explode_sim_h
 
+/*
+Expensive loop to calculate the edges for the main loop of
+explode_sim.
+*/
 vector<tuple<int8_t, int8_t, int8_t>> getEdges(int start) {
     vector<tuple<int8_t, int8_t, int8_t>> edges;
 

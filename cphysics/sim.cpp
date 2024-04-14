@@ -9,6 +9,11 @@
 
 using namespace std;
 
+/*
+Main functional loop of the argument. The program is 
+very specific about which arguments get passed into
+it.
+*/
 int main(int argc, char *argv[]) {
     int opt;
     bool verbose = false;
@@ -43,7 +48,11 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    // spi interface handler
+    /*
+    SPI Interface Handler
+    All error handling is done inside the method, see 
+    spi.h file for more information.
+    */
     int fd = spi_init();
     // cout << fd << endl;
 

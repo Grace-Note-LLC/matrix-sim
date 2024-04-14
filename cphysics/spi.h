@@ -11,9 +11,26 @@
 
 #include "sim.h"
 
+/*
+Initializes the SPI protocol on the Raspberry Pi. Only works on UNIX 
+devices. Note that in our case,
 
+    /dev/spidev0.0    =    SPI0 CS0
+
+which lets us write to the file as fd. The following options are
+configurable:
+- int mode
+- int bits
+- int speed
+
+*/
 int spi_init() {
     int fd;
+    // SPI configuration
+    int mode = SPI_MODE_0;
+    int bits = 8;
+    int speed = 500000;  // 500 kHz
+
     const char *device = "/dev/spidev0.0";  // Change as necessary
     // unsigned char data[] = {0x01, 0x37, 0xFF};
     // int length = sizeof(data);
@@ -24,11 +41,6 @@ int spi_init() {
         std::cerr << "Failed to open SPI device" << std::endl;
         return 1;
     }
-
-    // SPI configuration
-    int mode = SPI_MODE_0;
-    int bits = 8;
-    int speed = 500000;  // 500 kHz
 
     // Set SPI mode
     if (ioctl(fd, SPI_IOC_WR_MODE, &mode) == -1) {
@@ -61,6 +73,10 @@ int spi_init() {
     return fd;
 }
 
+
+/*
+Writes to the SPI device directly (fd) from the data as (data).
+*/
 int spi_write(int fd, unsigned char *data) {
     size_t length = LED_COUNT / BITS_PER_BYTE;
     // Write data to SPI device
@@ -72,8 +88,11 @@ int spi_write(int fd, unsigned char *data) {
     return 0;
 }
 
+/*
+Simple bit converter to bytes.
+*/
 unsigned char* bits_to_byte(bitset<LED_COUNT> bit_state) {
-    unsigned char* bytes = new unsigned char[LED_COUNT / BITS_PER_BYTE];  // Allocate memory for 8 bytes
+    unsigned char* bytes = new unsigned char[LED_COUNT / BITS_PER_BYTE]; 
     for (int i = 0; i < BITS_PER_BYTE; i++) {
         bytes[i] = (bit_state >> (BITS_PER_BYTE * i)).to_ullong() & 0xFF;
     }
