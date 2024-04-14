@@ -57,4 +57,5 @@ The presets are the following:
 
 
 ## Hardware
-The hardware is a `4 x 4 x 4` 3D matrix of **LEDs**, where each *LED* is controlled by a microcontroller, the **SDM 32 F103C8T6**. The *SDM 32* is connected to a **Raspberry Pi 4**, which sends the data to the *SDM 32*. The *Pi* runs the software, which sends the data to the *SDM 32* over the **Serial Peripheral Interface (SPI)** Protocol.
+
+The hardware is a `4 x 4 x 4` 3D matrix of **LEDs**, where each *LED* is controlled by a microcontroller, the **STM32 F103C8T6**. The *STM32* is connected to a **Raspberry Pi 4**, which sends the data to the *STM32*. The *Pi* runs the software, which sends the data to the *STM32* over the **Serial Peripheral Interface (SPI)** Protocol.
