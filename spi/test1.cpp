@@ -1,41 +1,58 @@
 #include <iostream>
 #include <fcntl.h>
 #include <unistd.h>
-#include <linux/i2c-dev.h>
 #include <sys/ioctl.h>
+#include <linux/spi/spidev.h>
 
 int main() {
     int fd;
-    int addr = 0x40;  // Example I2C address
+    const char *device = "/dev/spidev0.0";  // Change as necessary
+    unsigned char data[] = {0x01, 0x37, 0xFF};
+    int length = sizeof(data);
 
-    // Open I2C device
-    fd = open("/dev/i2c-20", O_RDWR);
-    if (fd == -1) {
-        std::cerr << "Failed to open I2C device" << std::endl;
+    // Open SPI device
+    fd = open(device, O_RDWR);
+    if (fd < 0) {
+        std::cerr << "Failed to open SPI device" << std::endl;
         return 1;
     }
 
-    // Set I2C slave address
-    if (ioctl(fd, I2C_SLAVE, addr) < 0) {
-        std::cerr << "Failed to acquire bus access and/or talk to slave." << std::endl;
+    // SPI configuration
+    int mode = SPI_MODE_0;
+    int bits = 8;
+    int speed = 500000;  // 500 kHz
+
+    // Set SPI mode
+    if (ioctl(fd, SPI_IOC_WR_MODE, &mode) == -1) {
+        std::cerr << "Failed to set SPI mode" << std::endl;
         close(fd);
         return 1;
     }
 
-    // Prepare data to send
-    unsigned char data[] = {0x01, 0x37, 0xFF};  // Array of bytes to be sent
-    int length = sizeof(data) / sizeof(data[0]);  // Length of the array
+    // Set bits per word
+    if (ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits) == -1) {
+        std::cerr << "Failed to set bits per word" << std::endl;
+        close(fd);
+        return 1;
+    }
 
-    // Write data to I2C device
+    // Set SPI clock speed
+    if (ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed) == -1) {
+        std::cerr << "Failed to set SPI speed" << std::endl;
+        close(fd);
+        return 1;
+    }
+
+    // Write data to SPI device
     if (write(fd, data, length) != length) {
-        std::cerr << "Failed to write to the I2C device" << std::endl;
+        std::cerr << "Failed to write data to SPI device" << std::endl;
         close(fd);
         return 1;
     }
 
-    // Close I2C device
+    // Close SPI device
     if (close(fd) == -1) {
-        std::cerr << "Failed to close I2C device" << std::endl;
+        std::cerr << "Failed to close SPI device" << std::endl;
         return 1;
     }
 
