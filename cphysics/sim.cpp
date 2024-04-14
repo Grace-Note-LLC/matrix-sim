@@ -16,24 +16,18 @@ int main(int argc, char *argv[]) {
     while ((opt = getopt(argc, argv, "vc:hp")) != -1) {
         switch (opt) {
 
-            // enable verbose mode for debugging
-            case 'v':
+            case 'v':           // enable verbose mode for debugging
                 verbose = true;
                 break;
             
-            // number of particles (default 1)
-            case 'c':
+            case 'c':           // number of particles (default 1)
                 particle_count = atoi(optarg);
-                // cout << particle_count;
                 break;
 
-            // used later for presets
-            case 'p':
-                // does nothing for now
+            case 'p':           // used later for presets
                 break;
 
-            // prints help statement
-            case 'h':
+            case 'h':           // prints help statement
                 cout << "Usage: " << argv[0] << " [--count value] [-h]\n";
                 cout << "Options:\n";
                 cout << "  -v                        switch to verbose mode   \n";
