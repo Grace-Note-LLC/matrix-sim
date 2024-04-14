@@ -142,7 +142,7 @@ void particle_sim(int fd, int particle_count, bool verbose) {
         // update all particles
         update_all(&particles);
 
-        if (verbose) particle_print(&particles, t);
+        // if (verbose) particle_print(&particles, t);
 
         // get led coords from particles
         vector<tuple<int8_t, int8_t, int8_t>> led_coords = particle_to_led(&particles);

@@ -40,12 +40,6 @@ void explode_sim(int fd, bool verbose) {
         // get led coords from particles
         vector<tuple<int8_t, int8_t, int8_t>> led_coords = getEdges(lower);
 
-        if (verbose) {
-            for (auto a : led_coords) {
-                printf("(%d,%d,%d)\n", std::get<0>(a), std::get<1>(a), std::get<2>(a));
-            }
-        }
-
         lower = (lower + 1) % CUBE_SIZE;
 
         // convert led coords to state vector

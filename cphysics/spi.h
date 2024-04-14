@@ -37,19 +37,19 @@ int spi_init() {
         return 1;
     }
 
-    // // Set bits per word
-    // if (ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits) == -1) {
-    //     std::cerr << "Failed to set bits per word" << std::endl;
-    //     close(fd);
-    //     return 1;
-    // }
+    // Set bits per word
+    if (ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits) == -1) {
+        std::cerr << "Failed to set bits per word" << std::endl;
+        close(fd);
+        return 1;
+    }
 
-    // // Set SPI clock speed
-    // if (ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed) == -1) {
-    //     std::cerr << "Failed to set SPI speed" << std::endl;
-    //     close(fd);
-    //     return 1;
-    // }
+    // Set SPI clock speed
+    if (ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed) == -1) {
+        std::cerr << "Failed to set SPI speed" << std::endl;
+        close(fd);
+        return 1;
+    }
 
 
     // // Close SPI device
