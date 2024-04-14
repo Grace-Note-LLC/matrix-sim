@@ -2,6 +2,8 @@
 
 A 3D matrix of LEDs that can simulate physics, cool animations, and much more. Designed to captivate any crowd, this platform combines interactive entertainment to make it ideal for keeping the party going past midnight.
 
+![Kickback Kube](./assets/illuminated.jpg)
+
 ## How to run and build
 
 1. Run the following:
@@ -26,6 +28,18 @@ Note that `-c` is only used when `-p` is set to `0`.
       -p preset                 switch to a specific preset
 ```
 
+## Planning
+
+**Planning Whiteboard**
+![Planning Whiteboard](./assets/Whiteboard.jpg)
+
+
+**First Prototype**
+![First Prototype](./assets/firstPrototype.jpg)
+
+**LED Legs**
+![LED Legs](./assets/LEDLegs.jpg)
+
 ## Software
 
 ### Core Components
@@ -44,6 +58,16 @@ The presets are the following:
 3. **Flash Simulation** (`flash_sim.h`): Generates sudden bursts of light, simulating effects such as lightning or other rapid illuminations within the cube. Useful for debugging.
 
 4. **Loading Simulation** (`loading_sim.h`): Displays loading or progress animations that fill the cube gradually.
+
+Additional presets:
+
+**Checkerboard Simulation**: Alternates between two LEDs to create a checkerboard pattern across the cube. This preset is particularly useful for testing the LED matrix and ensuring that all LEDs are functioning correctly.
+
+![Checkerboard Simulation](./assets/checkerboard.gif)
+
+**Side Propogator Simulation**: Simulates a wavefront propagating from one side of the cube to the other. This preset is useful for testing the speed and accuracy of the LED matrix.
+
+![Side Propogator Simulation](./assets/sidePropogator.gif)
 
 
 
