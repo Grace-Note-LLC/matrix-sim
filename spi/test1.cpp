@@ -13,7 +13,7 @@ int main() {
     }
 
     // Write data to SPI device
-    char data[] = {0x37, 0xFF};
+    unsigned char data[] = {0x37, 0xFF};
     if (write(fd, data, sizeof(data)) == -1) {
         std::cerr << "Failed to write to SPI device" << std::endl;
         close(fd);
