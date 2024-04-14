@@ -7,6 +7,9 @@
 
 using namespace std;
 
+#if !defined(sim_h)
+#define sim_h
+
 // Constants
 const int TIME_STEPS = 100;
 const int CUBE_SIZE = 4;
@@ -27,8 +30,14 @@ std::bitset<LED_COUNT> led_to_bit_state(std::vector<std::tuple<int8_t, int8_t, i
             std::get<0>(coord);
         
         // index of bit set starts from right, so subtract
-        output.set(LED_COUNT - state_idx);
+        // printf("%d\n", LED_COUNT - state_idx - 1);
+        output.set(LED_COUNT - state_idx - 1);
     }
 
     return output;
 }
+
+
+#endif // sim_h
+
+

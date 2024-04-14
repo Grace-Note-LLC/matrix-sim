@@ -1,4 +1,11 @@
+#if !defined(particle_sim_h)
+#define particle_sim_h
+
 #include "../sim.h"
+
+
+#endif // particle_sim_h
+
 using namespace std;
 
 const float dt = 0.2;

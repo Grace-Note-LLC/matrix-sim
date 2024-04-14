@@ -1,4 +1,4 @@
-#include "presets/particle_sim.h"
+#include "presets.h"
 
 #include <getopt.h>
 #include <iostream>
@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
             particle_sim(particle_count, verbose);
             break;
         case 1:
-
+            explode_sim(verbose);
             break;
 
         default:
