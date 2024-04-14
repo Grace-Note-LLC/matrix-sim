@@ -29,7 +29,7 @@ vector<tuple<int8_t, int8_t, int8_t>> getEdges(int start) {
 /*
 Main loop to simulate explosion from center outwards.
 */
-void explode_sim(bool verbose) {
+void explode_sim(int fd, bool verbose) {
     int lower = 0;
 
     // main time loop
@@ -48,6 +48,11 @@ void explode_sim(bool verbose) {
 
         // convert led coords to state vector
         bitset<LED_COUNT> bit_state = led_to_bit_state(&led_coords);
-        if (!verbose) cout << t << "\t:\t" << bit_state << endl;
+        // print state
+        if (verbose) { 
+            cout << t << "\t:\t" << bit_state << endl;
+        } else {
+            spi_write(fd, bits_to_byte(bit_state));
+        }
     }
 }

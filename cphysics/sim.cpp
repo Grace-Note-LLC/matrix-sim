@@ -44,24 +44,24 @@ int main(int argc, char *argv[]) {
     }
 
     // spi interface handler
-    spi_init();
+    int fd = spi_init();
 
     // mode executor
     switch (mode) {
         case 0:
-            particle_sim(particle_count, verbose);
+            particle_sim(fd, particle_count, verbose);
             break;
         case 1:
-            explode_sim(verbose);
+            explode_sim(fd, verbose);
             break;
         case 2:
-            snake_sim(verbose);
+            snake_sim(fd, verbose);
             break;
         case 3:
-            flash_sim(verbose);
+            flash_sim(fd, verbose);
             break;
         case 4:
-            loading_sim(verbose);
+            loading_sim(fd, verbose);
             break;
 
         default:

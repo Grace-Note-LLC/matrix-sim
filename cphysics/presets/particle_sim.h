@@ -2,7 +2,7 @@
 #define particle_sim_h
 
 #include "../sim.h"
-
+#include "../spi.h"
 
 #endif // particle_sim_h
 
@@ -131,7 +131,7 @@ std::vector<std::tuple<int8_t, int8_t, int8_t>> particle_to_led(std::vector<Part
 /*
 Main loop to simulate particles.
 */
-void particle_sim(int particle_count, bool verbose) {
+void particle_sim(int fd, int particle_count, bool verbose) {
     vector<Particle> particles(particle_count);
 
     // main time loop
@@ -148,6 +148,10 @@ void particle_sim(int particle_count, bool verbose) {
         bitset<LED_COUNT> bit_state = led_to_bit_state(&led_coords);
 
         // print state
-        if (!verbose) cout << t << "\t:\t" << bit_state << endl;
+        if (verbose) { 
+            cout << t << "\t:\t" << bit_state << endl;
+        } else {
+            spi_write(fd, bits_to_byte(bit_state));
+        }
     }
 }

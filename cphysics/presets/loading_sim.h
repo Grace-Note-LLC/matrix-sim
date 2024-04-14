@@ -8,7 +8,7 @@
 /*
 Main loop to simulate snake moving.
 */
-void loading_sim(bool verbose) {
+void loading_sim(int fd, bool verbose) {
     
     bitset<LED_COUNT> bit_state;
 
@@ -24,8 +24,11 @@ void loading_sim(bool verbose) {
             bit_state.set(LED_COUNT - i - 1);
         }
 
-        if (!verbose) {
+        // print state
+        if (verbose) { 
             cout << t << "\t:\t" << bit_state << endl;
+        } else {
+            spi_write(fd, bits_to_byte(bit_state));
         }
 
         bit_state >>= LED_COUNT / CUBE_SIZE;
