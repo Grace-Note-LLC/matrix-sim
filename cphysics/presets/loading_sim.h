@@ -17,7 +17,7 @@ void loading_sim(int fd, bool verbose) {
     // main time loop
     for (int t = 1; t <= TIME_STEPS; t++) {
         if (bit_state[0]) {
-            if (!verbose) cout << t << "\t:\t" << bit_state << endl;
+            if (verbose) cout << t << "\t:\t" << bit_state << endl;
             bit_state.reset();
             continue;
         }
