@@ -1,3 +1,5 @@
+#include <tuple>
+
 #if !defined(snake_sim_h)
 #define snake_sim_h
 
@@ -23,7 +25,7 @@ void snake_sim(int fd, bool verbose) {
         } else {
             spi_write(fd, bits_to_byte(bit_state));
         }
-        
+
         bit_state >>= 1;
         if (bit_state.none()) {
             bit_state.set(LED_COUNT - 1);

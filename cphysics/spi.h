@@ -4,6 +4,7 @@
 #include <sys/ioctl.h>
 #include <linux/spi/spidev.h>
 #include <bitset>
+#include <tuple>
 
 #if !defined(spi_h)
 #define spi_h

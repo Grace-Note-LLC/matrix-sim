@@ -1,3 +1,5 @@
+#include <tuple>
+
 #if !defined(explode_sim_h)
 #define explode_sim_h
 

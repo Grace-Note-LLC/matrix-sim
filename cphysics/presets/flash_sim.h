@@ -1,3 +1,5 @@
+#include <tuple>
+
 #if !defined(flash_sim_h)
 #define flash_sim_h
 
