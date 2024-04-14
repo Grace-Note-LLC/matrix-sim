@@ -15,8 +15,8 @@
 int spi_init() {
     int fd;
     const char *device = "/dev/spidev0.0";  // Change as necessary
-    unsigned char data[] = {0x01, 0x37, 0xFF};
-    int length = sizeof(data);
+    // unsigned char data[] = {0x01, 0x37, 0xFF};
+    // int length = sizeof(data);
 
     // Open SPI device
     fd = open(device, O_RDWR);
@@ -58,7 +58,7 @@ int spi_init() {
     //     return 1;
     // }
 
-    return 0;
+    return fd;
 }
 
 int spi_write(int fd, unsigned char *data) {
