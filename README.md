@@ -38,7 +38,7 @@ Note that `-c` is only used when `-p` is set to `0`.
 ![First Prototype](./assets/firstPrototype.jpg)
 
 **LED Legs**
-![LED Legs](./assets/LEDLegs.jpg)
+![LED Legs](./assets/LEDlegs.jpg)
 
 ## Software
 
@@ -69,6 +69,9 @@ Additional presets:
 
 ![Side Propogator Simulation](./assets/sidePropogator.gif)
 
+**Corner Propogator Simulation**: Simulates a wavefront propagating from one corner of the cube to the opposite corner. This preset is useful for testing the speed and accuracy of the LED matrix.
+
+![Corner Propogator Simulation](./assets/cornerPropogator.gif)
 
 
 ### Other Modules
