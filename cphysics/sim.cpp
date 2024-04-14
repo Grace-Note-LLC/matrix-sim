@@ -73,6 +73,9 @@ int main(int argc, char *argv[]) {
         case 4:
             loading_sim(fd, verbose);
             break;
+        case 5:
+            flash2_sim(fd, verbose);
+            break;
 
         default:
             cout << "Only cases [0-4] are allowed" << endl;

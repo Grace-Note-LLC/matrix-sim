@@ -11,7 +11,7 @@ using namespace std;
 #define sim_h
 
 // Constants
-const int TIME_STEPS = 1;
+const int TIME_STEPS = 100;
 const int CUBE_SIZE = 4;
 const int LED_COUNT = CUBE_SIZE * CUBE_SIZE * CUBE_SIZE;
 const int BITS_PER_BYTE = 8;
