@@ -354,10 +354,10 @@ void corners() {
 
     HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[i], GPIO_PIN_SET);
 
-    setPCAOutput(4, false);
+    setPCAOutput(3, false);
     HAL_Delay(200);
 
-    setPCAOutput(3, false);
+    setPCAOutput(2, false);
     setPCAOutput(7, false);
     HAL_Delay(200);
 
@@ -389,6 +389,136 @@ void corners() {
     resetEverything();
     HAL_Delay(200);
   }
+}
+
+void tunneling() {
+  resetEverything();
+  HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[0], GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[1], GPIO_PIN_SET);
+  HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[2], GPIO_PIN_SET);
+  HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[3], GPIO_PIN_RESET);
+
+  setPCAOutput(4, !true);
+  setPCAOutput(8, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(5, !true);
+  setPCAOutput(9, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(6, !true);
+  setPCAOutput(10, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(7, !true);
+  setPCAOutput(11, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(4, !false);
+  setPCAOutput(8, !false);
+  setPCAOutput(5, !false);
+  setPCAOutput(9, !false);
+  setPCAOutput(6, !false);
+  setPCAOutput(10, !false);
+  setPCAOutput(7, !false);
+  setPCAOutput(11, !false);
+
+  HAL_Delay(300);
+
+  setPCAOutput(13, !true);
+  setPCAOutput(14, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(9, !true);
+  setPCAOutput(10, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(5, !true);
+  setPCAOutput(6, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(1, !true);
+  setPCAOutput(2, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(13, !false);
+  setPCAOutput(14, !false);
+  setPCAOutput(9, !false);
+  setPCAOutput(10, !false);
+  setPCAOutput(5, !false);
+  setPCAOutput(6, !false);
+  setPCAOutput(1, !false);
+  setPCAOutput(2, !false);
+
+  HAL_Delay(300);
+
+  setPCAOutput(7, !true);
+  setPCAOutput(11, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(6, !true);
+  setPCAOutput(10, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(5, !true);
+  setPCAOutput(9, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(4, !true);
+  setPCAOutput(8, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(4, !false);
+  setPCAOutput(8, !false);
+  setPCAOutput(5, !false);
+  setPCAOutput(9, !false);
+  setPCAOutput(6, !false);
+  setPCAOutput(10, !false);
+  setPCAOutput(7, !false);
+  setPCAOutput(11, !false);
+
+  HAL_Delay(300);
+  setPCAOutput(1, !true);
+  setPCAOutput(2, !true);
+
+
+  HAL_Delay(300);
+
+  setPCAOutput(5, !true);
+  setPCAOutput(6, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(9, !true);
+  setPCAOutput(10, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(13, !true);
+  setPCAOutput(14, !true);
+
+  HAL_Delay(300);
+
+  setPCAOutput(13, !false);
+  setPCAOutput(14, !false);
+  setPCAOutput(9, !false);
+  setPCAOutput(10, !false);
+  setPCAOutput(5, !false);
+  setPCAOutput(6, !false);
+  setPCAOutput(1, !false);
+  setPCAOutput(2, !false);
 }
 
 /* USER CODE END PFP */
@@ -458,12 +588,29 @@ int main(void)
     // wait until SPI data is received
     // drive LEDs with helper function
 //    driveLEDs(rawState);
-//    testLEDs();
-//    sideAnimDONTUSE();
-//    spinningColumn();
-//    checkerboard();
-    corners();
+    for (int i = 0; i < 5; i++) {
+      testLEDs();
+    }
 
+    for (int i = 0; i < 5; i++) {
+      sideAnimDONTUSE();
+    }
+
+    for (int i = 0; i < 5; i++) {
+      spinningColumn();
+    }
+
+    for (int i = 0; i < 5; i++) {
+      checkerboard();
+    }
+
+    for (int i = 0; i < 5; i++) {
+      corners();
+    }
+
+    for (int i = 0; i < 5; i++) {
+      tunneling();
+    }
   }
   /* USER CODE END 3 */
 }
