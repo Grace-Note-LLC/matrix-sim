@@ -1,0 +1,259 @@
+setPCAOutput(0-15, bool)
+
+0 top 
+3 bottom
+
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[0], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[0], GPIO_PIN_RESET)
+
+for (int i = 0; i < 16; i++) {
+    setPCAOutput(i, true);
+}
+
+
+
+side anim
+
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[0], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[1], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[2], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[3], GPIO_PIN_SET)
+
+
+setPCAOutput(0, true);
+setPCAOutput(1, true);
+setPCAOutput(2, true);
+setPCAOutput(3, true);
+
+HAL_Delay(1000);
+
+setPCAOutput(4, true);
+setPCAOutput(5, true);
+setPCAOutput(6, true);
+setPCAOutput(7, true);
+
+HAL_Delay(1000);
+
+setPCAOutput(8, true);
+setPCAOutput(9, true);
+setPCAOutput(10, true);
+setPCAOutput(11, true);
+
+HAL_Delay(1000);
+
+setPCAOutput(12, true);
+setPCAOutput(13, true);
+setPCAOutput(14, true);
+setPCAOutput(15, true);
+
+
+spinning column
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[0], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[1], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[2], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[3], GPIO_PIN_SET)
+for (int i = 0; i < 16; i++) {
+    if (i == 5 || i == 6 || i == 9 || i == 10) {
+        continue;
+    }
+    setPCAOutput(i, true);
+}
+
+
+spinning column2
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[0], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[1], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[2], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[3], GPIO_PIN_SET)
+
+setPCAOutput(0, true); HAL_Delay(1000);
+setPCAOutput(1, true); HAL_Delay(1000);
+setPCAOutput(2, true); HAL_Delay(1000);
+setPCAOutput(7, true); HAL_Delay(1000);
+setPCAOutput(11, true); HAL_Delay(1000);
+setPCAOutput(15, true); HAL_Delay(1000);
+setPCAOutput(14, true); HAL_Delay(1000);
+setPCAOutput(13, true); HAL_Delay(1000);
+setPCAOutput(12, true); HAL_Delay(1000);
+setPCAOutput(8, true); HAL_Delay(1000);
+setPCAOutput(4, true); HAL_Delay(1000);
+
+
+tunneling
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[0], GPIO_PIN_RESET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[1], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[2], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[3], GPIO_PIN_RESET)
+
+setPCAOutput(4, true); 
+setPCAOutput(8, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(5, true); 
+setPCAOutput(9, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(6, true); 
+setPCAOutput(10, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(7, true); 
+setPCAOutput(11, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(4, false); 
+setPCAOutput(8, false); 
+setPCAOutput(5, false); 
+setPCAOutput(9, false); 
+setPCAOutput(6, false); 
+setPCAOutput(10, false); 
+setPCAOutput(7, false); 
+setPCAOutput(11, false); 
+
+HAL_Delay(300);
+
+setPCAOutput(13, true); 
+setPCAOutput(14, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(9, true); 
+setPCAOutput(10, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(5, true); 
+setPCAOutput(6, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(1, true); 
+setPCAOutput(2, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(13, false); 
+setPCAOutput(14, false); 
+setPCAOutput(9, false); 
+setPCAOutput(10, false); 
+setPCAOutput(5, false); 
+setPCAOutput(6, false); 
+setPCAOutput(1, false); 
+setPCAOutput(2, false); 
+
+HAL_Delay(300);
+
+setPCAOutput(7, true); 
+setPCAOutput(11, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(6, true); 
+setPCAOutput(10, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(5, true); 
+setPCAOutput(9, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(4, true); 
+setPCAOutput(8, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(4, false); 
+setPCAOutput(8, false); 
+setPCAOutput(5, false); 
+setPCAOutput(9, false); 
+setPCAOutput(6, false); 
+setPCAOutput(10, false); 
+setPCAOutput(7, false); 
+setPCAOutput(11, false); 
+
+HAL_Delay(300);
+setPCAOutput(1, true); 
+setPCAOutput(2, true); 
+
+
+HAL_Delay(300);
+
+setPCAOutput(5, true); 
+setPCAOutput(6, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(9, true); 
+setPCAOutput(10, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(13, true); 
+setPCAOutput(14, true); 
+
+HAL_Delay(300);
+
+setPCAOutput(13, false); 
+setPCAOutput(14, false); 
+setPCAOutput(9, false); 
+setPCAOutput(10, false); 
+setPCAOutput(5, false); 
+setPCAOutput(6, false); 
+setPCAOutput(1, false); 
+setPCAOutput(2, false); 
+
+
+checkerboard
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[0], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[1], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[2], GPIO_PIN_SET)
+HAL_GPIO_WritePin(TRANSISTOR_PORT, transistorPinMap[3], GPIO_PIN_SET)
+
+setPCAOutput(0, true);
+setPCAOutput(2, true);
+setPCAOutput(5, true);
+setPCAOutput(7, true);
+
+setPCAOutput(8, true);
+setPCAOutput(10, true);
+setPCAOutput(13, true);
+setPCAOutput(15, true);
+
+HAL_Delay(1000);
+
+setPCAOutput(0, false);
+setPCAOutput(2, false);
+setPCAOutput(5, false);
+setPCAOutput(7, false);
+
+setPCAOutput(8, false);
+setPCAOutput(10, false);
+setPCAOutput(13, false);
+setPCAOutput(15, false);
+
+setPCAOutput(1, true);
+setPCAOutput(3, true);
+setPCAOutput(4, true);
+setPCAOutput(6, true);
+
+setPCAOutput(9, true);
+setPCAOutput(11, true);
+setPCAOutput(12, true);
+setPCAOutput(14, true);
+
+HAL_Delay(1000);
+
+setPCAOutput(1, false);
+setPCAOutput(3, false);
+setPCAOutput(4, false);
+setPCAOutput(6, false);
+
+setPCAOutput(9, false);
+setPCAOutput(11, false);
+setPCAOutput(12, false);
+setPCAOutput(14, false);

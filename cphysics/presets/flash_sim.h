@@ -27,7 +27,7 @@ void flash_sim(int fd, bool verbose) {
             bit_state.set();
             toggle = !toggle;
         } else {
-            bit_state.reset();
+            // bit_state.reset();
             toggle = !toggle;
         }
     }
