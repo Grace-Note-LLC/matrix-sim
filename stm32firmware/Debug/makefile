@@ -60,8 +60,8 @@ all: main-build
 main-build: HardHackLEDCube.elf secondary-outputs
 
 # Tool invocations
-HardHackLEDCube.elf HardHackLEDCube.map: $(OBJS) $(USER_OBJS) C:\Users\codzm\STM32CubeIDE\workspace_1.15.0\HardHackLEDCube\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "HardHackLEDCube.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\codzm\STM32CubeIDE\workspace_1.15.0\HardHackLEDCube\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HardHackLEDCube.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+HardHackLEDCube.elf HardHackLEDCube.map: $(OBJS) $(USER_OBJS) C:\Users\codzm\Documents\QP\matrix-sim\stm32firmware\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "HardHackLEDCube.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\codzm\Documents\QP\matrix-sim\stm32firmware\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HardHackLEDCube.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
