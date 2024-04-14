@@ -50,9 +50,15 @@ int main(int argc, char *argv[]) {
         case 1:
             explode_sim(verbose);
             break;
+        case 2:
+            snake_sim(verbose);
+            break;
+        case 3:
+            flash_sim(verbose);
+            break;
 
         default:
-            cout << "Only cases [0, 1] are allowed" << endl;
+            cout << "Only cases [0, 1, 2, 3] are allowed" << endl;
     }
     return 0;
 }
