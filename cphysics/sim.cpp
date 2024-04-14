@@ -45,6 +45,7 @@ int main(int argc, char *argv[]) {
 
     // spi interface handler
     int fd = spi_init();
+    cout << fd << endl;
 
     // mode executor
     switch (mode) {

@@ -62,9 +62,9 @@ int spi_init() {
 }
 
 int spi_write(int fd, unsigned char *data) {
-    int length = sizeof(data);
+    size_t length = LED_COUNT / BITS_PER_BYTE;
     // Write data to SPI device
-    if (write(fd, data, length) != length) {
+    if (write(fd, data, length) != static_cast<ssize_t>(length)) {
         std::cerr << "Failed to write data to SPI device" << std::endl;
         close(fd);
         return 1;
