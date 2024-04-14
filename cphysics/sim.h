@@ -148,6 +148,6 @@ std::bitset<LED_COUNT> led_to_bit_state(std::vector<std::tuple<int8_t, int8_t, i
         // index of bit set starts from right, so subtract
         output.set(LED_COUNT - state_idx);
     }
-\
+
     return output;
 }

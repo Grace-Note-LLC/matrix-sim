@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
     std::vector<Particle> particles(particle_count);
 
     // main time loop
-    for (int t = 0; t < TIME_STEPS; t++) {
+    for (int t = 1; t <= TIME_STEPS; t++) {
 
         // update all particles
         update_all(&particles);
@@ -61,7 +61,9 @@ int main(int argc, char *argv[]) {
 
         // convert led coords to state vector
         std::bitset<LED_COUNT> bit_state = led_to_bit_state(&led_coords);
-
+        
+        // print state
+        if (!verbose) cout << t << "\t:\t" << bit_state << endl;
     }
 
     return 0;
