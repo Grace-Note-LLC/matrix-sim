@@ -1,4 +1,5 @@
-#include "sim.h"
+#include "presets/particle_sim.h"
+
 #include <getopt.h>
 #include <iostream>
 #include <vector>
@@ -11,11 +12,11 @@ int main(int argc, char *argv[]) {
     int opt;
     bool verbose = false;
     int particle_count = DEFAULT_NUM_PARTICLES;
+    int mode = 0;
 
     // cli parser
-    while ((opt = getopt(argc, argv, "vc:hp")) != -1) {
+    while ((opt = getopt(argc, argv, "vc:hp:")) != -1) {
         switch (opt) {
-
             case 'v':           // enable verbose mode for debugging
                 verbose = true;
                 break;
@@ -25,6 +26,7 @@ int main(int argc, char *argv[]) {
                 break;
 
             case 'p':           // used later for presets
+                mode = atoi(optarg);
                 break;
 
             case 'h':           // prints help statement
@@ -40,25 +42,17 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    std::vector<Particle> particles(particle_count);
+    // mode executor
+    switch (mode) {
+        case 0:
+            particle_sim(particle_count, verbose);
+            break;
+        case 1:
 
-    // main time loop
-    for (int t = 1; t <= TIME_STEPS; t++) {
+            break;
 
-        // update all particles
-        update_all(&particles);
-
-        if (verbose) particle_print(&particles, t);
-
-        // get led coords from particles
-        std:vector<std::tuple<int8_t, int8_t, int8_t>> led_coords = particle_to_led(&particles);
-
-        // convert led coords to state vector
-        std::bitset<LED_COUNT> bit_state = led_to_bit_state(&led_coords);
-        
-        // print state
-        if (!verbose) cout << t << "\t:\t" << bit_state << endl;
+        default:
+            cout << "Only cases [0, 1] are allowed" << endl;
     }
-
     return 0;
 }
