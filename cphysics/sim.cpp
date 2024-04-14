@@ -1,4 +1,5 @@
 #include "presets.h"
+#include "spi.h"
 
 #include <getopt.h>
 #include <iostream>
@@ -41,6 +42,9 @@ int main(int argc, char *argv[]) {
                 cerr << "Usage: " << argv[0] << " [-c value] [-v]\n";
         }
     }
+
+    // spi interface handler
+    spi_init();
 
     // mode executor
     switch (mode) {

@@ -4,7 +4,7 @@
 #include <linux/i2c-dev.h>
 #include <sys/ioctl.h>
 
-int main() {
+int spi_init() {
     int fd;
     int addr = 0x40;  // Example I2C address
 
@@ -21,23 +21,4 @@ int main() {
         close(fd);
         return 1;
     }
-
-    // Prepare data to send
-    unsigned char data[] = {0x01, 0x37, 0xFF};  // Array of bytes to be sent
-    int length = sizeof(data) / sizeof(data[0]);  // Length of the array
-
-    // Write data to I2C device
-    if (write(fd, data, length) != length) {
-        std::cerr << "Failed to write to the I2C device" << std::endl;
-        close(fd);
-        return 1;
-    }
-
-    // Close I2C device
-    if (close(fd) == -1) {
-        std::cerr << "Failed to close I2C device" << std::endl;
-        return 1;
-    }
-
-    return 0;
 }
