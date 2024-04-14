@@ -28,7 +28,7 @@ Note that `-c` is only used when `-p` is set to `0`.
       -p preset                 switch to a specific preset
 ```
 
-## Planning
+## Planning and Testing
 
 **Planning Whiteboard**
 ![Planning Whiteboard](./assets/Whiteboard.jpg)
@@ -39,6 +39,9 @@ Note that `-c` is only used when `-p` is set to `0`.
 
 **LED Legs**
 ![LED Legs](./assets/LEDlegs.jpg)
+
+**SPI Communication**
+![SPI Communication](./assets/SPICommunication.png)
 
 ## Software
 
