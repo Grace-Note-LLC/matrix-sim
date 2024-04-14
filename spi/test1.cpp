@@ -1,28 +1,32 @@
 #include <iostream>
 #include <fcntl.h>
 #include <unistd.h>
+#include <linux/i2c-dev.h>
+#include <sys/ioctl.h>
 
 int main() {
     int fd;
+    int addr = 0x40;  // Example I2C address
 
-    // Open SPI device
-    fd = open("/dev/spidev0.0", O_WRONLY);
+    // Open I2C device
+    fd = open("/dev/i2c-20", O_RDWR);
     if (fd == -1) {
-        std::cerr << "Failed to open SPI device" << std::endl;
+        std::cerr << "Failed to open I2C device" << std::endl;
         return 1;
     }
 
-    // Write data to SPI device
-    unsigned char data[] = {0x37, 0xFF};
-    if (write(fd, data, sizeof(data)) == -1) {
-        std::cerr << "Failed to write to SPI device" << std::endl;
+    // Set I2C slave address
+    if (ioctl(fd, I2C_SLAVE, addr) < 0) {
+        std::cerr << "Failed to acquire bus access and/or talk to slave." << std::endl;
         close(fd);
         return 1;
     }
 
-    // Close SPI device
+    // Additional code for communication would go here
+
+    // Close I2C device
     if (close(fd) == -1) {
-        std::cerr << "Failed to close SPI device" << std::endl;
+        std::cerr << "Failed to close I2C device" << std::endl;
         return 1;
     }
 
